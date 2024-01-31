@@ -23,9 +23,10 @@ const reducer = (state = initialState, action) => {
   console.log('state now: ', state)
   console.log('action', action)
   switch (action.type) {
-    case 'NEW_ANECDOTE':
+    case 'NEW_ANECDOTE': {
       return [...state, action.payload]
-    case 'VOTE':
+    }
+    case 'VOTE': {
       const id = action.payload.id
       const anecdoteToVote = state.find(a => a.id === id)
       const foundAnecdote = { 
@@ -36,6 +37,7 @@ const reducer = (state = initialState, action) => {
         ? anecdote
         : foundAnecdote
       )
+    }
     default: return state
   }
 }
